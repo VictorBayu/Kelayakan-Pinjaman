@@ -1,0 +1,4 @@
+MYSQL DATABASE
+database name = u272517999_skripsi
+username = u272517999_polinema
+password = 5/Yk[Rg:Uy
