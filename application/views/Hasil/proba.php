@@ -15,7 +15,7 @@
                                     <th scope="col">Mean Y</th>
                                     <th scope="col">Mean N</th>
                                     <th scope="col">StDev Y</th>
-                                    <th scope="col">StDev Y</th>
+                                    <th scope="col">StDev N</th>
                                 </tr>
                             </thead>
                             <tbody>

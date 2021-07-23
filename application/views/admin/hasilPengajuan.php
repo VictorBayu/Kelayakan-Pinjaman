@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="col-lg-8">
-        <?php foreach ($Data_model as $dm) : ?>
+        <?php foreach ($data_model as $dm) : ?>
             <?php
             if ($dm['Gender'] == '1') {
                 $gender = 'Male';
@@ -38,7 +38,7 @@
             ?>
             <div class="card">
                 <div class="card-body">
-                    <p class="card-text">Untuk melihat hasil pengajuan <b>KLIK tombol Detail</b></p>
+                    <p class="card-text">Untuk melihat hasil pengajuan <b>KLIK tombol Hasil Prediksi</b></p>
                     <div class="row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Gender</label>
                         <div class="col-sm-5">
@@ -100,6 +100,7 @@
                         </div>
                     </div>
                     <a class="btn btn-primary" href="<?= base_url('admin/tes'); ?>">Hasil Prediksi</a>
+
                 </div>
             </div>
         <?php endforeach; ?>

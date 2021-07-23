@@ -5,10 +5,6 @@ class data_model extends CI_Model
     {
         return $this->db->get('data_training')->result_array();
     }
-    // public function getdata_uji()
-    // {
-    //     return $this->db->get('data_uji')->result_array();
-    // }
     public function getPengajuan()
     {
         return $this->db->get('pengajuan')->result_array();

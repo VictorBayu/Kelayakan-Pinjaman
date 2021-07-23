@@ -70,7 +70,7 @@
                         }
                         if ($dt['Prediksi'] == '1') {
                             $pre = 'Y';
-                        } elseif ($dt['Prediksi'] == '0') {
+                        } elseif ($dt['Prediksi'] != '1') {
                             $pre = 'N';
                         }
                         ?>

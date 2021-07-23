@@ -33,7 +33,7 @@ class Hasil extends CI_Controller
     {
         $data['title'] = "Evaluasi";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->model('Data_model', 'de');
+        $this->load->model('data_model', 'de');
         //load library
         $this->load->library('pagination');
         //config

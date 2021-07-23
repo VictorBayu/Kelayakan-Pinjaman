@@ -67,13 +67,13 @@
                         <input type="text" class="form-control" id="gaji2" name="gaji2" required>
                     </div>
                     <div class="form-group col-lg-4">
-                        <label for="inputEmail4">Loan Amount</label>
+                        <label for="inputEmail4">Loan Amount <small>(in thousands)</small></label>
                         <input type="text" class="form-control" id="pinjaman" name="pinjaman" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col">
-                        <label for="inputEmail4">Loan Amount Term</label>
+                        <label for="inputEmail4">Loan Amount Term <small>(in month)</small></label>
                         <input type="text" class="form-control" id="tenor" name="tenor" required>
                     </div>
                     <div class="form-group col">

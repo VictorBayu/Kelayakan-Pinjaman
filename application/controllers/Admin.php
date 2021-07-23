@@ -7,7 +7,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         checkLogin();
-        $this->load->model('Data_model');
+        $this->load->model('data_model');
         $this->load->model('hitung_model');
     }
 
@@ -70,8 +70,7 @@ class Admin extends CI_Controller
                 'LoanAmount' => $this->input->post('pinjaman'),
                 'Loan_Amount_Term' => $this->input->post('tenor'),
                 'Credit_History' => $this->input->post('history'),
-                'Property_Area' => $this->input->post('property'),
-                'Prediksi' => -1
+                'Property_Area' => $this->input->post('property')
             ];
             $this->db->insert('pengajuan', $data);
             $this->session->set_flashdata(
@@ -80,6 +79,7 @@ class Admin extends CI_Controller
                 Berhasil Mengajukan, Tunggu Konfirmasinya!!
             </div>'
             );
+
             redirect('admin/hasilpengajuan');
         }
     }
@@ -87,9 +87,11 @@ class Admin extends CI_Controller
     {
         $data['title'] = "Hasil Pengajuan";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->model('hitung_model');
+        //$this->load->model('hitung_model');
 
-        $data['Data_model'] = $this->Data_model->loadPengujian();
+        $data['data_model'] = $this->data_model->loadPengujian();
+        // $this->load->model('hitung_model', 'hm');
+        // $this->hm->pengajuan();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -101,6 +103,8 @@ class Admin extends CI_Controller
     {
         $this->load->model('hitung_model', 'hm');
         $this->hm->pengajuan();
+        $this->hm->updatePrediksi();
+        $this->hm->alert();
         redirect('admin/hasilpengajuan');
     }
     public function role()
