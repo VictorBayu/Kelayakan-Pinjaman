@@ -110,11 +110,11 @@ class hitung_model extends CI_Model
             $ltY = @(1 / (sqrt(2 * pi()) * $data4stdev_y * exp(- ((pow($row['Loan_Amount_Term'] - $data4mean_y, 2)) / (2 * (pow($data4stdev_y, 2)))))));
             $ltN = @(1 / (sqrt(2 * pi()) * $data4stdev_n * exp(- ((pow($row['Loan_Amount_Term'] - $data4mean_n, 2)) / (2 * (pow($data4stdev_n, 2)))))));
             //data proba
-            $data5 = $this->db->get_where('tbl_proba', array('atribut' => $row['Gender']))->result_array();
-            foreach ($data5 as $e) {
-                $data5Gender_y = $e['prob_Y'];
-                $data5Gender_n = $e['prob_N'];
-            }
+            // $data5 = $this->db->get_where('tbl_proba', array('atribut' => $row['Gender']))->result_array();
+            // foreach ($data5 as $e) {
+            //     $data5Gender_y = $e['prob_Y'];
+            //     $data5Gender_n = $e['prob_N'];
+            // }
             $data6 = $this->db->get_where('tbl_proba', array('atribut' => $row['Married']))->result_array();
             foreach ($data6 as $f) {
                 $data6Married_y = $f['prob_Y'];
@@ -145,9 +145,9 @@ class hitung_model extends CI_Model
                 $data11Property_y = $k['prob_Y'];
                 $data11Property_n = $k['prob_N'];
             }
-            $kelasY = $appY * $coappY * $lmY * $ltY * $data5Gender_y * $data6Married_y * $data7Dependents_y * $data8Education_y * $data9Self_Employed_y * $data10Credit_y * $data10Credit_y * $data11Property_y * $dataLoan_y;
+            $kelasY = $appY * $coappY * $lmY * $ltY * $data6Married_y * $data7Dependents_y * $data8Education_y * $data9Self_Employed_y * $data10Credit_y * $data10Credit_y * $data11Property_y * $dataLoan_y;
 
-            $kelasN = $appN * $coappN * $lmN * $ltN * $data5Gender_n * $data6Married_n * $data7Dependents_n * $data8Education_n * $data9Self_Employed_n * $data10Credit_n * $data10Credit_n * $data11Property_n * $dataLoan_n;
+            $kelasN = $appN * $coappN * $lmN * $ltN * $data6Married_n * $data7Dependents_n * $data8Education_n * $data9Self_Employed_n * $data10Credit_n * $data10Credit_n * $data11Property_n * $dataLoan_n;
 
             $kelasY = is_infinite($kelasY) ? 0 : $kelasY;
             $kelasN = is_infinite($kelasN) ? 0 : $kelasN;

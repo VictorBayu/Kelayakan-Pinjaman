@@ -7,7 +7,7 @@ class data_model extends CI_Model
     }
     public function getPengajuan()
     {
-        return $this->db->get('pengajuan')->result_array();
+        return $this->db->query("SELECT * FROM `pengajuan` ORDER BY `ID` DESC")->result_array();
     }
     public function datatrain()
     {
@@ -125,56 +125,56 @@ class data_model extends CI_Model
         $this->db->query($input);
 
         //HITUNG PROBABILITAS GENDER
-        $genderMale_Y = $this->db->get_where(
-            'data_training',
-            array(
-                'Gender' => '1',
-                'Loan_Status' => '1'
-            )
-        )->num_rows();
-        $genderFemale_Y = $this->db->get_where(
-            'data_training',
-            array(
-                'Gender' => '0',
-                'Loan_Status' => '1'
-            )
-        )->num_rows();
-        $genderMale_N = $this->db->get_where(
-            'data_training',
-            array(
-                'Gender' => '1',
-                'Loan_Status' => '0'
-            )
-        )->num_rows();
-        $genderFemale_N = $this->db->get_where(
-            'data_training',
-            array(
-                'Gender' => '0',
-                'Loan_Status' => '0'
-            )
-        )->num_rows();
+        // $genderMale_Y = $this->db->get_where(
+        //     'data_training',
+        //     array(
+        //         'Gender' => '1',
+        //         'Loan_Status' => '1'
+        //     )
+        // )->num_rows();
+        // $genderFemale_Y = $this->db->get_where(
+        //     'data_training',
+        //     array(
+        //         'Gender' => '0',
+        //         'Loan_Status' => '1'
+        //     )
+        // )->num_rows();
+        // $genderMale_N = $this->db->get_where(
+        //     'data_training',
+        //     array(
+        //         'Gender' => '1',
+        //         'Loan_Status' => '0'
+        //     )
+        // )->num_rows();
+        // $genderFemale_N = $this->db->get_where(
+        //     'data_training',
+        //     array(
+        //         'Gender' => '0',
+        //         'Loan_Status' => '0'
+        //     )
+        // )->num_rows();
 
-        $probMale_Y = round(($genderMale_Y / $jumlahStatusY), 9);
-        $probMale_N = round(($genderMale_N / $jumlahStatusN), 9);
+        // $probMale_Y = round(($genderMale_Y / $jumlahStatusY), 9);
+        // $probMale_N = round(($genderMale_N / $jumlahStatusN), 9);
 
-        $probFemale_Y = round(($genderFemale_Y / $jumlahStatusY), 9);
-        $probFemale_N = round(($genderFemale_N / $jumlahStatusN), 9);
+        // $probFemale_Y = round(($genderFemale_Y / $jumlahStatusY), 9);
+        // $probFemale_N = round(($genderFemale_N / $jumlahStatusN), 9);
 
-        $dataMale = [
-            [
-                'ID_atribut' => 2,
-                'atribut' => 'Male',
-                'prob_Y' => $probMale_Y,
-                'prob_N' => $probMale_N
-            ],
-            [
-                'ID_atribut' => 2,
-                'atribut' => 'Female',
-                'prob_Y' => $probFemale_Y,
-                'prob_N' => $probFemale_N
-            ]
-        ];
-        $this->db->insert_batch('tbl_proba', $dataMale);
+        // $dataMale = [
+        //     [
+        //         'ID_atribut' => 2,
+        //         'atribut' => 'Male',
+        //         'prob_Y' => $probMale_Y,
+        //         'prob_N' => $probMale_N
+        //     ],
+        //     [
+        //         'ID_atribut' => 2,
+        //         'atribut' => 'Female',
+        //         'prob_Y' => $probFemale_Y,
+        //         'prob_N' => $probFemale_N
+        //     ]
+        // ];
+        // $this->db->insert_batch('tbl_proba', $dataMale);
 
         //HITUNG PROBABILITAS MARRIED
         $MarriedYes_Y = $this->db->get_where(
@@ -212,13 +212,13 @@ class data_model extends CI_Model
 
         $dataMarried = [
             [
-                'ID_atribut' => 3,
+                'ID_atribut' => 2,
                 'atribut' => 'Yes',
                 'prob_Y' => $probMarriedYes_Y,
                 'prob_N' => $probMarriedYes_N
             ],
             [
-                'ID_atribut' => 3,
+                'ID_atribut' => 2,
                 'atribut' => 'No',
                 'prob_Y' => $probMarriedNo_Y,
                 'prob_N' => $probMarriedNo_N
@@ -294,25 +294,25 @@ class data_model extends CI_Model
 
         $dataDepen = [
             [
-                'ID_atribut' => 4,
+                'ID_atribut' => 3,
                 'atribut' => '0',
                 'prob_Y' => $probDepen0_Y,
                 'prob_N' => $probDepen0_N
             ],
             [
-                'ID_atribut' => 4,
+                'ID_atribut' => 3,
                 'atribut' => '1',
                 'prob_Y' => $probDepen1_Y,
                 'prob_N' => $probDepen1_N
             ],
             [
-                'ID_atribut' => 4,
+                'ID_atribut' => 3,
                 'atribut' => '2',
                 'prob_Y' => $probDepen2_Y,
                 'prob_N' => $probDepen2_N
             ],
             [
-                'ID_atribut' => 4,
+                'ID_atribut' => 3,
                 'atribut' => '3+',
                 'prob_Y' => $probDepen3_Y,
                 'prob_N' => $probDepen3_N
@@ -359,13 +359,13 @@ class data_model extends CI_Model
 
         $dataEdu = [
             [
-                'ID_atribut' => 5,
+                'ID_atribut' => 4,
                 'atribut' => 'Graduate',
                 'prob_Y' => $probGraduateY,
                 'prob_N' => $probGraduateN
             ],
             [
-                'ID_atribut' => 5,
+                'ID_atribut' => 4,
                 'atribut' => 'Not_Graduate',
                 'prob_Y' => $probNotGraduateY,
                 'prob_N' => $probNotGraduateN
@@ -409,13 +409,13 @@ class data_model extends CI_Model
 
         $dataSelf = [
             [
-                'ID_atribut' => 6,
+                'ID_atribut' => 5,
                 'atribut' => 'Yes',
                 'prob_Y' => $probSelfYes_Y,
                 'prob_N' => $probSelfYes_N
             ],
             [
-                'ID_atribut' => 6,
+                'ID_atribut' => 5,
                 'atribut' => 'No',
                 'prob_Y' => $probSelfNo_Y,
                 'prob_N' => $probSelfNo_N
@@ -459,13 +459,13 @@ class data_model extends CI_Model
 
         $dataCredit = [
             [
-                'ID_atribut' => 7,
+                'ID_atribut' => 6,
                 'atribut' => '1',
                 'prob_Y' => $probCredit1_Y,
                 'prob_N' => $probCredit1_N
             ],
             [
-                'ID_atribut' => 7,
+                'ID_atribut' => 6,
                 'atribut' => '0',
                 'prob_Y' => $probCredit0_Y,
                 'prob_N' => $probCredit0_N
@@ -526,19 +526,19 @@ class data_model extends CI_Model
 
         $dataProperty = [
             [
-                'ID_atribut' => 8,
+                'ID_atribut' => 7,
                 'atribut' => 'Urban',
                 'prob_Y' => $probPropertyUrban_Y,
                 'prob_N' => $probPropertyUrban_N
             ],
             [
-                'ID_atribut' => 8,
+                'ID_atribut' => 7,
                 'atribut' => 'Rural',
                 'prob_Y' => $probPropertyRural_Y,
                 'prob_N' => $probPropertyRural_N
             ],
             [
-                'ID_atribut' => 8,
+                'ID_atribut' => 7,
                 'atribut' => 'Semiurban',
                 'prob_Y' => $probPropertySemiurban_Y,
                 'prob_N' => $probPropertySemiurban_N
@@ -697,104 +697,104 @@ class data_model extends CI_Model
 
         //data grafik
         $data_grafik = [
+            // [
+            //     'ID_atribut' => 1,
+            //     'atribut' => 'Male',
+            //     'Yes' => $genderMale_Y,
+            //     'No' => $genderMale_N
+            // ],
+            // [
+            //     'ID_atribut' => 1,
+            //     'atribut' => 'Female',
+            //     'Yes' => $genderFemale_Y,
+            //     'No' => $genderFemale_N
+            // ],
             [
                 'ID_atribut' => 1,
-                'atribut' => 'Male',
-                'Yes' => $genderMale_Y,
-                'No' => $genderMale_N
-            ],
-            [
-                'ID_atribut' => 1,
-                'atribut' => 'Female',
-                'Yes' => $genderFemale_Y,
-                'No' => $genderFemale_N
-            ],
-            [
-                'ID_atribut' => 2,
                 'atribut' => 'Married_Yes',
                 'Yes' => $MarriedYes_Y,
                 'No' => $MarriedYes_N
             ],
             [
-                'ID_atribut' => 2,
+                'ID_atribut' => 1,
                 'atribut' => 'Married_No',
                 'Yes' => $MarriedNo_Y,
                 'No' => $MarriedNo_N
             ],
             [
-                'ID_atribut' => 3,
+                'ID_atribut' => 2,
                 'atribut' => '0',
                 'Yes' => $Depen0_Y,
                 'No' => $Depen0_N
             ],
             [
-                'ID_atribut' => 3,
+                'ID_atribut' => 2,
                 'atribut' => '1',
                 'Yes' => $Depen1_Y,
                 'No' => $Depen1_N
             ],
             [
-                'ID_atribut' => 3,
+                'ID_atribut' => 2,
                 'atribut' => '2',
                 'Yes' => $Depen2_Y,
                 'No' => $Depen2_N
             ],
             [
-                'ID_atribut' => 3,
+                'ID_atribut' => 2,
                 'atribut' => '3+',
                 'Yes' => $Depen3_Y,
                 'No' => $Depen3_N
             ],
             [
-                'ID_atribut' => 4,
+                'ID_atribut' => 3,
                 'atribut' => 'eduGraduate',
                 'Yes' => $eduGraduateY,
                 'No' => $eduGraduateN
             ],
             [
-                'ID_atribut' => 4,
+                'ID_atribut' => 3,
                 'atribut' => 'eduNotGraduate',
                 'Yes' => $eduNotGraduateY,
                 'No' => $eduNotGraduateN
             ],
             [
-                'ID_atribut' => 5,
+                'ID_atribut' => 4,
                 'atribut' => 'SelfY',
                 'Yes' => $SelfYes_Y,
                 'No' => $SelfYes_N
             ],
             [
-                'ID_atribut' => 5,
+                'ID_atribut' => 4,
                 'atribut' => 'SelfN',
                 'Yes' => $SelfNo_Y,
                 'No' => $SelfNo_N
             ],
             [
-                'ID_atribut' => 6,
+                'ID_atribut' => 5,
                 'atribut' => 'Credit1',
                 'Yes' => $Credit1_Y,
                 'No' => $Credit1_N
             ],
             [
-                'ID_atribut' => 6,
+                'ID_atribut' => 5,
                 'atribut' => 'Credit0',
                 'Yes' => $Credit0_Y,
                 'No' => $Credit0_N
             ],
             [
-                'ID_atribut' => 7,
+                'ID_atribut' => 6,
                 'atribut' => 'Urban',
                 'Yes' => $PropertyUrban_Y,
                 'No' => $PropertyUrban_N
             ],
             [
-                'ID_atribut' => 7,
+                'ID_atribut' => 6,
                 'atribut' => 'Rural',
                 'Yes' => $PropertyRural_Y,
                 'No' => $PropertyRural_N
             ],
             [
-                'ID_atribut' => 7,
+                'ID_atribut' => 6,
                 'atribut' => 'Semiurban',
                 'Yes' => $PropertySemiurban_Y,
                 'No' => $PropertySemiurban_N

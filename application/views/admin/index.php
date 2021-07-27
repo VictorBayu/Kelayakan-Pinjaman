@@ -28,38 +28,39 @@
             var chart = am4core.create("chartdiv", am4charts.XYChart);
 
             // Add data
-            chart.data = [{
-                    "col": "Gender",
-                    "male": <?php foreach ($temp['1'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
-                    "female": <?php foreach ($temp['2'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>
-                },
+            chart.data = [
+                // {
+                //     "col": "Gender",
+                //     "male": <?php foreach ($temp['1'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
+                //     "female": <?php foreach ($temp['2'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>
+                // },
                 {
                     "col": "Married",
-                    "married": <?php foreach ($temp['3'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
-                    "single": <?php foreach ($temp['4'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>
+                    "married": <?php foreach ($temp['1'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
+                    "single": <?php foreach ($temp['2'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>
                 }, {
                     "col": "Dependents",
-                    "0": <?php foreach ($temp['5'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
-                    "1": <?php foreach ($temp['6'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
-                    "2": <?php foreach ($temp['7'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
-                    "3+": <?php foreach ($temp['8'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>
+                    "0": <?php foreach ($temp['3'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
+                    "1": <?php foreach ($temp['4'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
+                    "2": <?php foreach ($temp['5'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
+                    "3+": <?php foreach ($temp['6'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>
                 }, {
                     "col": "Education",
-                    "graduate": <?php foreach ($temp['9'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
-                    "not graduate": <?php foreach ($temp['10'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>
+                    "graduate": <?php foreach ($temp['7'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
+                    "not graduate": <?php foreach ($temp['8'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>
                 }, {
                     "col": "Self Employed",
-                    "yes": <?php foreach ($temp['11'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
-                    "no": <?php foreach ($temp['12'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>
+                    "yes": <?php foreach ($temp['9'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
+                    "no": <?php foreach ($temp['10'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>
                 }, {
                     "col": "Credit History",
-                    "have": <?php foreach ($temp['13'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
-                    "haven't": <?php foreach ($temp['14'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>
+                    "have": <?php foreach ($temp['11'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
+                    "haven't": <?php foreach ($temp['12'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>
                 }, {
                     "col": "Property Area",
-                    "rural": <?php foreach ($temp['15'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
-                    "urban": <?php foreach ($temp['16'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
-                    "semiurban": <?php foreach ($temp['17'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>
+                    "rural": <?php foreach ($temp['13'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
+                    "urban": <?php foreach ($temp['14'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>,
+                    "semiurban": <?php foreach ($temp['15'] as $a) : ?><?= $a['Yes']; ?><?php endforeach; ?>
                 }
             ];
 
@@ -86,9 +87,6 @@
                 series.stacked = stacked;
                 series.columns.template.width = am4core.percent(98);
             }
-
-            createSeries("male", "Male", true);
-            createSeries("female", "Female", true);
             createSeries("married", "Married", true);
             createSeries("single", "Single", true);
             createSeries("0", "0", true);
@@ -123,38 +121,39 @@
             var chart = am4core.create("chartdiv1", am4charts.XYChart);
 
             // Add data
-            chart.data = [{
-                    "col": "Gender",
-                    "male": <?php foreach ($temp['1'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
-                    "female": <?php foreach ($temp['2'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>
-                },
+            chart.data = [
+                // {
+                //     "col": "Gender",
+                //     "male": <?php foreach ($temp['1'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
+                //     "female": <?php foreach ($temp['2'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>
+                // },
                 {
                     "col": "Married",
-                    "married": <?php foreach ($temp['3'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
-                    "single": <?php foreach ($temp['4'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>
+                    "married": <?php foreach ($temp['1'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
+                    "single": <?php foreach ($temp['2'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>
                 }, {
                     "col": "Dependents",
-                    "0": <?php foreach ($temp['5'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
-                    "1": <?php foreach ($temp['6'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
-                    "2": <?php foreach ($temp['7'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
-                    "3+": <?php foreach ($temp['8'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>
+                    "0": <?php foreach ($temp['3'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
+                    "1": <?php foreach ($temp['4'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
+                    "2": <?php foreach ($temp['5'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
+                    "3+": <?php foreach ($temp['6'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>
                 }, {
                     "col": "Education",
-                    "graduate": <?php foreach ($temp['9'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
-                    "not graduate": <?php foreach ($temp['10'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>
+                    "graduate": <?php foreach ($temp['7'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
+                    "not graduate": <?php foreach ($temp['8'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>
                 }, {
                     "col": "Self Employed",
-                    "yes": <?php foreach ($temp['11'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
-                    "no": <?php foreach ($temp['12'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>
+                    "yes": <?php foreach ($temp['9'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
+                    "no": <?php foreach ($temp['10'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>
                 }, {
                     "col": "Credit History",
-                    "have": <?php foreach ($temp['13'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
-                    "haven't": <?php foreach ($temp['14'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>
+                    "have": <?php foreach ($temp['11'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
+                    "haven't": <?php foreach ($temp['12'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>
                 }, {
                     "col": "Property Area",
-                    "rural": <?php foreach ($temp['15'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
-                    "urban": <?php foreach ($temp['16'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
-                    "semiurban": <?php foreach ($temp['17'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>
+                    "rural": <?php foreach ($temp['13'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
+                    "urban": <?php foreach ($temp['14'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>,
+                    "semiurban": <?php foreach ($temp['15'] as $a) : ?><?= $a['No']; ?><?php endforeach; ?>
                 }
             ];
 
@@ -182,8 +181,8 @@
                 series.columns.template.width = am4core.percent(98);
             }
 
-            createSeries("male", "Male", true);
-            createSeries("female", "Female", true);
+            // createSeries("male", "Male", true);
+            // createSeries("female", "Female", true);
             createSeries("married", "Married", true);
             createSeries("single", "Single", true);
             createSeries("0", "0", true);

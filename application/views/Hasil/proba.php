@@ -38,18 +38,18 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="card mt-b-30">
                     <div class="card-body">
-                        <h3 class="card-title text-center">Gender</h3>
+                        <h3 class="card-title text-center">Education</h3>
                         <table class="table table-sm table-borderless">
                             <thead>
                                 <tr>
                                     <th class="text-center" scope="col">Atribut</th>
-                                    <th class="text-center" scope="col">Gender</th>
+                                    <th class="text-center" scope="col">Education</th>
                                     <th class="text-center" scope="col">Loan Status Yes</th>
                                     <th class="text-center" scope="col">Loan Status No</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($temp['2'] as $p) : ?>
+                                <?php foreach ($temp['4'] as $p) : ?>
                                     <tr>
                                         <td>Gender</td>
                                         <td class="text-center"><small><?= $p['atribut']; ?></small></td>
@@ -76,7 +76,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($temp['3'] as $u) : ?>
+                                <?php foreach ($temp['2'] as $u) : ?>
                                     <tr>
                                         <td>Married</td>
                                         <td class="text-center"><small><?= $u['atribut']; ?></small></td>
@@ -105,7 +105,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($temp['6'] as $de) : ?>
+                                <?php foreach ($temp['5'] as $de) : ?>
                                     <tr>
                                         <td class="text-center">Self Employee</td>
                                         <td class="text-center"><small><?= $de['atribut']; ?></small></td>
@@ -132,7 +132,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($temp['7'] as $de) : ?>
+                                <?php foreach ($temp['6'] as $de) : ?>
                                     <tr>
                                         <td class="text-center">Credit History</td>
                                         <td class="text-center"><small><?= $de['atribut']; ?></small></td>
@@ -161,7 +161,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($temp['4'] as $de) : ?>
+                                <?php foreach ($temp['3'] as $de) : ?>
                                     <tr>
                                         <td class="text-center">Dependent</td>
                                         <td class="text-center"><small><?= $de['atribut']; ?></small></td>
@@ -188,7 +188,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($temp['8'] as $de) : ?>
+                                <?php foreach ($temp['7'] as $de) : ?>
                                     <tr>
                                         <td class="text-center">Property Area</td>
                                         <td class="text-center"><small><?= $de['atribut']; ?></small></td>
