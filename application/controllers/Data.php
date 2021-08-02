@@ -40,9 +40,31 @@ class Data extends CI_Controller
         $this->load->view('data/dataTarget', $data);
         $this->load->view('templates/footer');
     }
+    public function dataUji()
+    {
+        $data['title'] = "Data Testing";
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->load->model('data_model', 'da');
+        $this->load->library('pagination');
+        //config
+        $config['base_url'] = 'http://localhost/Skripsi/data/dataUji';
+        $config['total_rows'] = $this->da->count_all_uji();
+        $config['per_page'] = 10;
+        //initialize
+        $this->pagination->initialize($config);
+        $data['start'] = $this->uri->segment(3);
+        $data['da'] = $this->da->getDataUji($config['per_page'], $data['start']);
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('data/dataUji', $data);
+        $this->load->view('templates/footer');
+    }
     public function dataPengajuan()
     {
-        $data['title'] = "Data Pengajuan";
+        $data['title'] = "Data Pengajuan Pinjaman";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         // $data['data_uji'] = $this->db->get('data_uji')->result_array();
         $this->load->model('data_model', 'du');
@@ -79,14 +101,44 @@ class Data extends CI_Controller
         //$this->du->numberY();
         redirect('data/dataTarget');
     }
-    public function delete()
+    public function testing()
+    {
+        $this->load->model('data_model', 'du');
+        //$this->du->truncateTesting();
+        $this->du->testing();
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success" role="alert">
+            Berhasil Melakukan Perhitungan Prediksi!!
+        </div>'
+        );
+        redirect('data/dataUji');
+    }
+    public function deleteTraining()
     {
         $this->db->query("DELETE FROM data_training");
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success" role="alert">
+            Success Delete All Data Training!!
+        </div>'
+        );
         redirect('data/dataTarget');
     }
     public function deletePengajuan()
     {
         $this->db->query("DELETE FROM pengajuan");
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success" role="alert">
+            Success Delete All Data!!
+        </div>'
+        );
+        redirect('data/dataPengajuan');
+    }
+    public function deleteTesting()
+    {
+        $this->db->query("DELETE FROM data_uji");
         $this->session->set_flashdata(
             'message',
             '<div class="alert alert-success" role="alert">

@@ -63,6 +63,12 @@
                 height: 300px;
             }
 
+            #grafik {
+                width: 100%;
+                height: 350px;
+                position: relative;
+            }
+
             /* #chartTraindiv {
                 width: 100%;
                 height: 300px;

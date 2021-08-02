@@ -9,7 +9,7 @@
                 <div class="login-social-inner">
                     <a class="btn btn-primary" href="<?= base_url('Data/naivebayes'); ?>" role="button"> <span><i class="fa fa-code"></i></span> Naive Bayes</a>
                     <!-- <a class="btn btn-info" href="" data-toggle="modal" data-target="#ModalRandom"> <span><i class="fa fa-cogs"></i></span> Random Sampling</a> -->
-                    <a class="btn btn-danger" href="<?= base_url('Data/delete'); ?>" data-toggle="modal" data-target="#ModalDelete"> <span><i class="fa fa-trash"></i></span> Delete</a>
+                    <a class="btn btn-danger" href="<?= base_url('Data/deleteTraining'); ?>" data-toggle="modal" data-target="#ModalDelete"> <span><i class="fa fa-trash"></i></span> Delete</a>
                     <a class="btn btn-warning" href="<?= base_url('Data/excel'); ?>"> <span><i class="fa fa-download"></i></span> Export</a>
                     <a class="btn btn-warning" href="<?= base_url('Data/uploadExcel'); ?>" data-toggle="modal" data-target="#ModalImportExcel"><span><i class="fa fa-upload"></i></span> Import File Excel</a>
 

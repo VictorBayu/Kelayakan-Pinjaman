@@ -29,6 +29,21 @@ class Hasil extends CI_Controller
         $this->load->view('Hasil/proba', $data);
         $this->load->view('templates/footer');
     }
+    public function pengujian()
+    {
+        $data['title'] = "Hasil Pengujian Testing";
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('Data_model', 'dm');
+        $data['dm'] = $this->dm->getdata_uji();
+        $this->load->model('Data_model', 'co');
+        $data['co'] = $this->co->count_all_uji();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('Hasil/pengujian', $data);
+        $this->load->view('templates/footer');
+    }
     public function evaluasi()
     {
         $data['title'] = "Evaluasi";

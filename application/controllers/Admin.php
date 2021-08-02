@@ -33,7 +33,7 @@ class Admin extends CI_Controller
     }
     public function pengajuan()
     {
-        $data['title'] = "Pengajuan";
+        $data['title'] = "Pengajuan Pinjaman";
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         //nampilin nama user yg masuk sesuia di DB
         //echo 'Selamat datang ' . $data['user']['name'];
